@@ -1,9 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "declaration": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "pretty": true,
+    "sourceMap": true,
+    "target": "es2018",
     "lib": [
       "dom",
       "dom.iterable",
+      "es2018",
       "esnext"
     ],
     "allowJs": true,
@@ -17,9 +26,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "rootDir": ".",
+    "outDir": "build"
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
