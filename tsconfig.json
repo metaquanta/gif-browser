@@ -8,11 +8,10 @@
     "noImplicitReturns": true,
     "pretty": true,
     "sourceMap": true,
-    "target": "es2018",
+    "target": "esnext",
     "lib": [
       "dom",
       "dom.iterable",
-      "es2018",
       "esnext"
     ],
     "allowJs": true,

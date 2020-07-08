@@ -28,124 +28,124 @@ import {
 export interface GifImages {
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    downsized?: Image & object;
+    downsized?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    downsizedLarge?: Image & object;
+    downsizedLarge?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    downsizedMedium?: Image & object;
+    downsizedMedium?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    downsizedSmall?: Image & object;
+    downsizedSmall?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    downsizedStill?: Image & object;
+    downsizedStill?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedHeight?: Image & object;
+    fixedHeight?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedHeightDownsampled?: Image & object;
+    fixedHeightDownsampled?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedHeightSmall?: Image & object;
+    fixedHeightSmall?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedHeightSmallStill?: Image & object;
+    fixedHeightSmallStill?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedHeightStill?: Image & object;
+    fixedHeightStill?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedWidth?: Image & object;
+    fixedWidth?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedWidthDownsampled?: Image & object;
+    fixedWidthDownsampled?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedWidthSmall?: Image & object;
+    fixedWidthSmall?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedWidthSmallStill?: Image & object;
+    fixedWidthSmallStill?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    fixedWidthStill?: Image & object;
+    fixedWidthStill?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    looping?: Image & object;
+    looping?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    original?: Image & object;
+    original?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    originalStill?: Image & object;
+    originalStill?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    preview?: Image & object;
+    preview?: Image;
     /**
      * 
-     * @type {Image & object}
+     * @type {Image}
      * @memberof GifImages
      */
-    previewGif?: Image & object;
+    previewGif?: Image;
 }
 
 export function GifImagesFromJSON(json: any): GifImages {
@@ -158,26 +158,26 @@ export function GifImagesFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     }
     return {
         
-        'downsized': !exists(json, 'downsized') ? undefined : Image &amp; objectFromJSON(json['downsized']),
-        'downsizedLarge': !exists(json, 'downsized_large') ? undefined : Image &amp; objectFromJSON(json['downsized_large']),
-        'downsizedMedium': !exists(json, 'downsized_medium') ? undefined : Image &amp; objectFromJSON(json['downsized_medium']),
-        'downsizedSmall': !exists(json, 'downsized_small') ? undefined : Image &amp; objectFromJSON(json['downsized_small']),
-        'downsizedStill': !exists(json, 'downsized_still') ? undefined : Image &amp; objectFromJSON(json['downsized_still']),
-        'fixedHeight': !exists(json, 'fixed_height') ? undefined : Image &amp; objectFromJSON(json['fixed_height']),
-        'fixedHeightDownsampled': !exists(json, 'fixed_height_downsampled') ? undefined : Image &amp; objectFromJSON(json['fixed_height_downsampled']),
-        'fixedHeightSmall': !exists(json, 'fixed_height_small') ? undefined : Image &amp; objectFromJSON(json['fixed_height_small']),
-        'fixedHeightSmallStill': !exists(json, 'fixed_height_small_still') ? undefined : Image &amp; objectFromJSON(json['fixed_height_small_still']),
-        'fixedHeightStill': !exists(json, 'fixed_height_still') ? undefined : Image &amp; objectFromJSON(json['fixed_height_still']),
-        'fixedWidth': !exists(json, 'fixed_width') ? undefined : Image &amp; objectFromJSON(json['fixed_width']),
-        'fixedWidthDownsampled': !exists(json, 'fixed_width_downsampled') ? undefined : Image &amp; objectFromJSON(json['fixed_width_downsampled']),
-        'fixedWidthSmall': !exists(json, 'fixed_width_small') ? undefined : Image &amp; objectFromJSON(json['fixed_width_small']),
-        'fixedWidthSmallStill': !exists(json, 'fixed_width_small_still') ? undefined : Image &amp; objectFromJSON(json['fixed_width_small_still']),
-        'fixedWidthStill': !exists(json, 'fixed_width_still') ? undefined : Image &amp; objectFromJSON(json['fixed_width_still']),
-        'looping': !exists(json, 'looping') ? undefined : Image &amp; objectFromJSON(json['looping']),
-        'original': !exists(json, 'original') ? undefined : Image &amp; objectFromJSON(json['original']),
-        'originalStill': !exists(json, 'original_still') ? undefined : Image &amp; objectFromJSON(json['original_still']),
-        'preview': !exists(json, 'preview') ? undefined : Image &amp; objectFromJSON(json['preview']),
-        'previewGif': !exists(json, 'preview_gif') ? undefined : Image &amp; objectFromJSON(json['preview_gif']),
+        'downsized': !exists(json, 'downsized') ? undefined : ImageFromJSON(json['downsized']),
+        'downsizedLarge': !exists(json, 'downsized_large') ? undefined : ImageFromJSON(json['downsized_large']),
+        'downsizedMedium': !exists(json, 'downsized_medium') ? undefined : ImageFromJSON(json['downsized_medium']),
+        'downsizedSmall': !exists(json, 'downsized_small') ? undefined : ImageFromJSON(json['downsized_small']),
+        'downsizedStill': !exists(json, 'downsized_still') ? undefined : ImageFromJSON(json['downsized_still']),
+        'fixedHeight': !exists(json, 'fixed_height') ? undefined : ImageFromJSON(json['fixed_height']),
+        'fixedHeightDownsampled': !exists(json, 'fixed_height_downsampled') ? undefined : ImageFromJSON(json['fixed_height_downsampled']),
+        'fixedHeightSmall': !exists(json, 'fixed_height_small') ? undefined : ImageFromJSON(json['fixed_height_small']),
+        'fixedHeightSmallStill': !exists(json, 'fixed_height_small_still') ? undefined : ImageFromJSON(json['fixed_height_small_still']),
+        'fixedHeightStill': !exists(json, 'fixed_height_still') ? undefined : ImageFromJSON(json['fixed_height_still']),
+        'fixedWidth': !exists(json, 'fixed_width') ? undefined : ImageFromJSON(json['fixed_width']),
+        'fixedWidthDownsampled': !exists(json, 'fixed_width_downsampled') ? undefined : ImageFromJSON(json['fixed_width_downsampled']),
+        'fixedWidthSmall': !exists(json, 'fixed_width_small') ? undefined : ImageFromJSON(json['fixed_width_small']),
+        'fixedWidthSmallStill': !exists(json, 'fixed_width_small_still') ? undefined : ImageFromJSON(json['fixed_width_small_still']),
+        'fixedWidthStill': !exists(json, 'fixed_width_still') ? undefined : ImageFromJSON(json['fixed_width_still']),
+        'looping': !exists(json, 'looping') ? undefined : ImageFromJSON(json['looping']),
+        'original': !exists(json, 'original') ? undefined : ImageFromJSON(json['original']),
+        'originalStill': !exists(json, 'original_still') ? undefined : ImageFromJSON(json['original_still']),
+        'preview': !exists(json, 'preview') ? undefined : ImageFromJSON(json['preview']),
+        'previewGif': !exists(json, 'preview_gif') ? undefined : ImageFromJSON(json['preview_gif']),
     };
 }
 
@@ -190,26 +190,26 @@ export function GifImagesToJSON(value?: GifImages | null): any {
     }
     return {
         
-        'downsized': Image &amp; objectToJSON(value.downsized),
-        'downsized_large': Image &amp; objectToJSON(value.downsizedLarge),
-        'downsized_medium': Image &amp; objectToJSON(value.downsizedMedium),
-        'downsized_small': Image &amp; objectToJSON(value.downsizedSmall),
-        'downsized_still': Image &amp; objectToJSON(value.downsizedStill),
-        'fixed_height': Image &amp; objectToJSON(value.fixedHeight),
-        'fixed_height_downsampled': Image &amp; objectToJSON(value.fixedHeightDownsampled),
-        'fixed_height_small': Image &amp; objectToJSON(value.fixedHeightSmall),
-        'fixed_height_small_still': Image &amp; objectToJSON(value.fixedHeightSmallStill),
-        'fixed_height_still': Image &amp; objectToJSON(value.fixedHeightStill),
-        'fixed_width': Image &amp; objectToJSON(value.fixedWidth),
-        'fixed_width_downsampled': Image &amp; objectToJSON(value.fixedWidthDownsampled),
-        'fixed_width_small': Image &amp; objectToJSON(value.fixedWidthSmall),
-        'fixed_width_small_still': Image &amp; objectToJSON(value.fixedWidthSmallStill),
-        'fixed_width_still': Image &amp; objectToJSON(value.fixedWidthStill),
-        'looping': Image &amp; objectToJSON(value.looping),
-        'original': Image &amp; objectToJSON(value.original),
-        'original_still': Image &amp; objectToJSON(value.originalStill),
-        'preview': Image &amp; objectToJSON(value.preview),
-        'preview_gif': Image &amp; objectToJSON(value.previewGif),
+        'downsized': ImageToJSON(value.downsized),
+        'downsized_large': ImageToJSON(value.downsizedLarge),
+        'downsized_medium': ImageToJSON(value.downsizedMedium),
+        'downsized_small': ImageToJSON(value.downsizedSmall),
+        'downsized_still': ImageToJSON(value.downsizedStill),
+        'fixed_height': ImageToJSON(value.fixedHeight),
+        'fixed_height_downsampled': ImageToJSON(value.fixedHeightDownsampled),
+        'fixed_height_small': ImageToJSON(value.fixedHeightSmall),
+        'fixed_height_small_still': ImageToJSON(value.fixedHeightSmallStill),
+        'fixed_height_still': ImageToJSON(value.fixedHeightStill),
+        'fixed_width': ImageToJSON(value.fixedWidth),
+        'fixed_width_downsampled': ImageToJSON(value.fixedWidthDownsampled),
+        'fixed_width_small': ImageToJSON(value.fixedWidthSmall),
+        'fixed_width_small_still': ImageToJSON(value.fixedWidthSmallStill),
+        'fixed_width_still': ImageToJSON(value.fixedWidthStill),
+        'looping': ImageToJSON(value.looping),
+        'original': ImageToJSON(value.original),
+        'original_still': ImageToJSON(value.originalStill),
+        'preview': ImageToJSON(value.preview),
+        'preview_gif': ImageToJSON(value.previewGif),
     };
 }
 
