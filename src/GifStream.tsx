@@ -23,6 +23,7 @@ export default (): JSX.Element => {
             height: gif.images?.fixedWidth?.height,
             display: 'block',
           }}
+          alt=''
           src={gif.images?.fixedWidth?.url}
         />
       ))
