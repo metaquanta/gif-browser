@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import InfiniteScroll from 'react-infinite-scroller';
+import {
+  GifsApi,
+  Configuration,
+  Gif
+} from './generated/giphy';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+const PAGE_SIZE = 25;
+
+interface AppState {
+  gifs: Gif[];
+}
+
+const api = new GifsApi(
+  new Configuration({ apiKey: 'a3ZRVRY96IYxu1tJD5hkDDFE9Pac4Vih' })
+);
+
+class App extends Component<{}, AppState> {
+  state = {
+    gifs: [],
+  };
+
+  loadMore(n: number) {
+    api.trendingGifs({ offset: n * PAGE_SIZE, limit: PAGE_SIZE }).then(r => {
+      const currentGifs: Gif[] = this.state.gifs;
+      this.setState({ gifs: currentGifs.concat(r.data || []) });
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <InfiniteScroll
+          pageStart={0}
+          initialLoad={true}
+          loadMore={n => this.loadMore(n)}
+          hasMore={true}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          {
+            this.state.gifs.map((gif: Gif) => (
+              <img
+                style={{
+                  width: gif.images?.fixedWidth?.width,
+                  height: gif.images?.fixedWidth?.height,
+                  display: 'block',
+                }}
+                src={gif.images?.fixedWidth?.url}
+              ></img>
+            ))
+          }
+        </InfiniteScroll>
+      </div>
+    );
+  }
 }
 
 export default App;
