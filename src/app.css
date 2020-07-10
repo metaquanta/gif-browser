@@ -1,0 +1,44 @@
+body {
+    margin: 0px;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+}
+
+.gifViewer {
+    position:fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.gifViewer img {
+    z-index: 99;
+}
+
+.darken {
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 55;
+}
+
+.streamRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.streamColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.clickable {
+    cursor: pointer;
+}
