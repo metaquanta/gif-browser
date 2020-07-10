@@ -4,7 +4,7 @@ Minimalist Giphy interface. An infinite stream of dense-twichiness.
 
 ## Live Demo: https://gifs.metaquanta.com
 
-Click any gif or use the input field to search (don't forget to hit **enter**)
+Click any gif or use the input field to search (don't forget to hit **enter** (maybe twice))
 
 This project is built on Create-React-App's Typescript template. It also uses API-client code built with OpenAPI and a schema from [APIs-guru](https://github.com/APIs-guru/openapi-directory)
 
@@ -24,7 +24,9 @@ Other difficult decisions tended to fall into the same broad category as, "Shoul
 - ### Write tests
   - Depends on the above
 - ### Instant search/search suggestions
+- Fix the orphaned api requests
 - Loading indicators
 - CSS reboot
 - Some text to accompany the gifs might be helpful
+- Test browsers besides desktop Firefox
 - and much much more
