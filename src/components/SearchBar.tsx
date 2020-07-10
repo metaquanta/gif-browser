@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { dispatchSearch } from '../redux/gifStreamSlice';
 import { RootState } from '../redux/rootReducer';
+import { dispatchSearch } from '../redux/gifStreamSlice';
 
 export default (): JSX.Element => {
   const dispatch = useDispatch();
@@ -14,5 +14,6 @@ export default (): JSX.Element => {
       dispatchSearch(dispatch, state, input.value);
     }
   }}>
-    <input id="q" className="search" name="q" autoFocus={true} /></form>
+    <input id="q" className="search" name="q" autoFocus={true} />
+  </form>
 }

@@ -6,9 +6,9 @@ import {
 } from "@reduxjs/toolkit";
 import { Dispatch } from "react";
 
-export type GifState = { url?: URL; visible: boolean };
+export type GifViewerState = { url?: URL; visible: boolean };
 
-const gifSlice = createSlice<GifState, SliceCaseReducers<GifState>>({
+const gifSlice = createSlice<GifViewerState, SliceCaseReducers<GifViewerState>>({
     name: "gif",
     initialState: { visible: false },
     reducers: {
