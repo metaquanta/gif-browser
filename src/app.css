@@ -53,3 +53,8 @@ img {
 .clickable {
   cursor: pointer;
 }
+
+button {
+  border: 0px;
+  padding: 0px;
+}

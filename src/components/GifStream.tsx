@@ -37,10 +37,10 @@ const scroller = (state: GifStreamState, gifs: SlimGif[], dispatch: Dispatch<any
   </InfiniteScroll>
 
 const img = (gif: SlimGif, dispatch: Dispatch<any>): JSX.Element =>
-  <a className="clickable" onClick={() => {
+  <button className="clickable" onClick={() => {
     console.log(`click(${gif.id})`)
     viewGif(dispatch, new URL(gif.originalUrl || ""))
   }}>
     <img style={{ width: gif.width, height: gif.height }} alt="" src={gif.fixedWidthUrl} />
-  </a>
+  </button>
 
