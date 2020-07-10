@@ -17,6 +17,8 @@ const partition = (gifs: SlimGif[], num: number) => {
 export default (): JSX.Element => {
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state.gifStreamSlice);
+  // Choosing which array to render here, based on a boolean is the wrong way to do it. It 
+  // confuses React's ui-updating logic.
   return scroller(state, (state.searchQuery ? state.searchGifs : state.trendingGifs), dispatch);
 }
 

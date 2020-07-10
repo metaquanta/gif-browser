@@ -66,6 +66,7 @@ const gifStreamSlice = createSlice({
             if (action.payload == "") state.searchQuery = undefined;
             else state.searchQuery = action.payload;
             state.searchGifsRequested = 0;
+            state.searchGifs = [];
         }
     },
     extraReducers: (builder) =>
