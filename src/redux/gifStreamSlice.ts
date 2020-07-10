@@ -67,6 +67,8 @@ const gifStreamSlice = createSlice({
             else state.searchQuery = action.payload;
             state.searchGifsRequested = 0;
             state.searchGifs = [];
+            state.trendingGifsRequested = 0;
+            state.trendingGifs = [];
         }
     },
     extraReducers: (builder) =>
@@ -74,8 +76,12 @@ const gifStreamSlice = createSlice({
         builder
             .addCase(loadTrendingGifs.fulfilled, (state: GifStreamState, action) => {
                 state.loadMoreTrendingGifs = false;
-                if (action.payload.offset == state.trendingGifs.length) {
+                if (action.payload.offset == 0) {
+                    state.trendingGifs = action.payload.gifs.map(slim);
+                } else if (action.payload.offset == state.trendingGifs.length) {
                     state.trendingGifs = state.trendingGifs.concat(action.payload.gifs.map(slim));
+                } else {
+                    console.log(`Orphaned request [${state.trendingGifs.length}]: ${action.payload.offset} try again?`);
                 }
             })
             .addCase(loadSearchGifs.fulfilled, (state: GifStreamState, action) => {
@@ -85,7 +91,7 @@ const gifStreamSlice = createSlice({
                 } else if (action.payload.offset == state.searchGifs.length) {
                     state.searchGifs = state.searchGifs.concat(action.payload.gifs.map(slim));
                 } else {
-                    console.log(`Orphaned request [${state.searchGifs.length}]: ${action.payload.offset}`);
+                    console.log(`Orphaned request [${state.searchGifs.length}]: ${action.payload.offset} try again?`);
                 }
             })
             .addCase("willLoadSearchGifs", (state) => {
