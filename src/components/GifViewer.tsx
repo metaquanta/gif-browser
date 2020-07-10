@@ -1,7 +1,7 @@
-import React, { Dispatch } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { hideGif } from './redux/gifSlice';
-import { RootState } from './redux/rootReducer';
+import { hideGif } from '../redux/gifViewerSlice';
+import { RootState } from '../redux/rootReducer';
 
 export default (): JSX.Element => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import gifStreamSlice from "./gifStreamSlice";
-import gifSlice from "./gifSlice";
+import gifSlice from "./gifViewerSlice";
 
 const rootReducer = combineReducers({ gifStreamSlice, gifSlice });
 
