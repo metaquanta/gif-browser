@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, Action, PayloadAction } from "@reduxjs/toolkit";
-import { Gif, GifsApi, Configuration } from "../generated/giphy";
+import { GifsApi, Configuration } from "../generated/giphy";
 import { Dispatch } from "react";
 import { slim, SlimGif } from "../SlimGif";
 

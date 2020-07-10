@@ -1,7 +1,6 @@
 import InfiniteScroll from 'react-infinite-scroller';
 import React, { Dispatch } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Gif } from '../generated/giphy';
 import { GifStreamState, moarGifs } from '../redux/gifStreamSlice';
 import { RootState } from '../redux/rootReducer';
 import { viewGif } from '../redux/gifViewerSlice';
