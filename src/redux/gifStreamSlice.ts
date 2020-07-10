@@ -4,33 +4,51 @@ import {
     GifsApi,
     Configuration
 } from '../generated/giphy';
+import { Dispatch } from 'react';
 
-type GifStreamState = { gifs: Gif[], page_requested: number, page_loaded: number };
-
-const PAGE_SIZE = 25;
+const PAGE_SIZE = 5;
 
 const api = new GifsApi(
     new Configuration({ apiKey: 'a3ZRVRY96IYxu1tJD5hkDDFE9Pac4Vih' })
 );
+type GifStreamState = { gifs: Gif[], gifs_requested: number, load_more_gifs: boolean };
 
-// TODO: fix page count stuff
-const fetchTrendingGifs = (page: number) =>
-    api.trendingGifs({ offset: page * PAGE_SIZE }).then(r =>
-        ({ gifs: r.data || [], page: (r.pagination?.totalCount || 0) / PAGE_SIZE }));
+const willLoadTrendingGifs = () => ({ type: "willLoadTrendingGifs" });
 
-// TODO: fix page count stuff
-export const moarGifs = createAsyncThunk('moarGifs', (page: number, thunkApi) =>
-    fetchTrendingGifs(page))
+const loadTrendingGifs = createAsyncThunk('loadTrendingGifs', (offset: number, thunkApi) =>
+    api.trendingGifs({ offset, limit: PAGE_SIZE }).then(r =>
+        ({ gifs: r.data || [], page: (r.pagination?.totalCount || 0) })))
 
 const gifStreamSlice = createSlice({
     name: 'gifStream',
-    initialState: { gifs: [], page_requested: 0, page_loaded: 0 },
-    reducers: {},
+    initialState: { gifs: [], gifs_requested: 0, load_more_gifs: false },
+    reducers: {
+        moarGifs(state, action) {
+            state.load_more_gifs = true;
+        }
+    },
     extraReducers: builder =>
-        builder.addCase(moarGifs.fulfilled, (state: GifStreamState, action) => {
+        builder.addCase(loadTrendingGifs.fulfilled, (state: GifStreamState, action) => {
+            state.load_more_gifs = false;
             state.gifs = state.gifs.concat(action.payload.gifs);
-            state.page_loaded = action.payload.page;
+        }).addCase('willLoadTrendingGifs', (state) => {
+            state.gifs_requested = state.gifs.length + PAGE_SIZE;
         })
 });
+
+function shouldFetchGifs(state: GifStreamState) {
+    if (state.gifs.length < state.gifs_requested) return false;
+    return true;
+}
+
+export const moarGifs = (dispatch: Dispatch<any>, state: GifStreamState) => {
+    console.log(`moarGifs() - [gifs.length:${state.gifs.length}, gifs_requested:${state.gifs_requested}]`);
+    if (shouldFetchGifs(state)) {
+        dispatch(willLoadTrendingGifs());
+        dispatch(loadTrendingGifs(state.gifs.length));
+    } else {
+        dispatch(gifStreamSlice.actions.moarGifs);
+    }
+}
 
 export default gifStreamSlice.reducer;  

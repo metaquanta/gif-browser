@@ -12,7 +12,7 @@ export default (): JSX.Element => {
   return <InfiniteScroll
     pageStart={0}
     initialLoad={true}
-    loadMore={n => dispatch(moarGifs(n))}
+    loadMore={() => moarGifs(dispatch, state)}
     hasMore={true}
   >
     {
