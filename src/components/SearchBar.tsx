@@ -6,6 +6,9 @@ import { updateSearchQuery } from '../redux/gifStreamSlice';
 export default (): JSX.Element => {
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state.gifStreamSlice);
+  window.onpopstate = () => {
+    window.location.reload();
+  };
   return <form onSubmit={(e) => {
     e.preventDefault();
     const input: HTMLElement | null = document.getElementById('q');
