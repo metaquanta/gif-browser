@@ -9,11 +9,12 @@ export default (): JSX.Element => {
   return <form onSubmit={(e) => {
     e.preventDefault();
     const input: HTMLElement | null = document.getElementById('q');
-    if (input && input instanceof HTMLInputElement) {
+    if (input instanceof HTMLInputElement) {
       console.log("query: " + input.value);
       updateSearchQuery(dispatch, state, input.value);
     }
   }}>
-    <input id="q" className="search" name="q" autoFocus={true} />
+    <input id="q" className="search" name="q" autoFocus={true}
+      defaultValue={new URL(window.location.href).searchParams.get('q') || ""} />
   </form>
 }

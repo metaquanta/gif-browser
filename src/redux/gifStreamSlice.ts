@@ -63,18 +63,22 @@ const gifStreamSlice = createSlice({
     name: "gifStream",
     initialState: {
         gifs: [],
-        request: new GifRequest(0)
+        request: new GifRequest(0, new URL(window.location.href).searchParams.get('q') || undefined)
     },
     reducers: {
         // This freshens search stream-related state
         updateSearchQuery(state: GifStreamState, action: PayloadAction<string>) {
+            const url = new URL(window.location.href);
             if (action.payload === "" && state.request.query !== undefined) {
+                url.searchParams.delete('q');
                 state.gifs = [];
                 state.request = new GifRequest(0);
             } else if (action.payload !== state.request.query) {
+                url.searchParams.set('q', action.payload);
                 state.gifs = [];
                 state.request = new GifRequest(0, action.payload);
             }
+            window.history.pushState({}, window.document.title, url.toString());
         }
     },
     extraReducers: (builder) =>
