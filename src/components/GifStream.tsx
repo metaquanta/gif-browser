@@ -1,7 +1,7 @@
 import React, { Dispatch } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
-import { GifStreamState, moarGifs } from '../redux/gifStreamSlice';
+import { GifStreamState, loadMore } from '../redux/gifStreamSlice';
 import { viewGif } from '../redux/gifViewerSlice';
 import { RootState } from '../redux/rootReducer';
 import { SlimGif } from '../SlimGif';
@@ -17,16 +17,17 @@ const partition = (gifs: SlimGif[], num: number) => {
 export default (): JSX.Element => {
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state.gifStreamSlice);
-  // Choosing which array to render here, based on a boolean is the wrong way to do it. It 
-  // confuses React's ui-updating logic.
-  return scroller(state, (state.searchQuery ? state.searchGifs : state.trendingGifs), dispatch);
+  return scroller(state, state.gifs, dispatch);
 }
 
 const scroller = (state: GifStreamState, gifs: SlimGif[], dispatch: Dispatch<any>): JSX.Element =>
   <InfiniteScroll
     pageStart={0}
     initialLoad={true}
-    loadMore={() => moarGifs(dispatch, state)}
+    loadMore={(p) => {
+      console.log(`loadMore(${p})`)
+      loadMore(dispatch, state)
+    }}
     hasMore={true}
   >
     <div className="streamRow">

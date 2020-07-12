@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/rootReducer';
-import { dispatchSearch } from '../redux/gifStreamSlice';
+import { updateSearchQuery } from '../redux/gifStreamSlice';
 
 export default (): JSX.Element => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export default (): JSX.Element => {
     const input: HTMLElement | null = document.getElementById('q');
     if (input && input instanceof HTMLInputElement) {
       console.log("query: " + input.value);
-      dispatchSearch(dispatch, state, input.value);
+      updateSearchQuery(dispatch, state, input.value);
     }
   }}>
     <input id="q" className="search" name="q" autoFocus={true} />
