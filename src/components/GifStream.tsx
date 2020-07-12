@@ -17,27 +17,27 @@ const partition = (gifs: SlimGif[], num: number) => {
 export default (): JSX.Element => {
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state.gifStreamSlice);
-  return scroller(state, state.gifs, dispatch);
+  return <div className="streamRow">
+    {partition(state.gifs, Math.floor(window.innerWidth / GIF_WIDTH)).map((gifs, i) => 
+      scroller(state, gifs, dispatch) 
+    )}
+  </div>
 }
 
 const scroller = (state: GifStreamState, gifs: SlimGif[], dispatch: Dispatch<any>): JSX.Element =>
-  <InfiniteScroll
-    pageStart={0}
-    initialLoad={true}
-    loadMore={(p) => {
-      console.log(`loadMore(${p})`)
-      loadMore(dispatch, state)
-    }}
-    hasMore={true}
-  >
-    <div className="streamRow">
-      {partition(gifs, Math.floor(window.innerWidth / GIF_WIDTH)).map((gifs, i) =>
-        <div className="streamColumn" style={{ width: GIF_WIDTH }}>
-          {gifs.map((g: SlimGif) => img(g, dispatch))}
-        </div>)
-      }
-    </div>
-  </InfiniteScroll>
+  <div className="streamColumn" style={{ width: GIF_WIDTH }}>
+    <InfiniteScroll
+      pageStart={0}
+      initialLoad={true}
+      loadMore={(p) => {
+        console.log(`loadMore(${p})`)
+        loadMore(dispatch, state)
+      }}
+      hasMore={true}
+    >
+      {gifs.map((g: SlimGif) => img(g, dispatch))}
+    </InfiniteScroll>
+  </div>
 
 const img = (gif: SlimGif, dispatch: Dispatch<any>): JSX.Element =>
   <button className="clickable" onClick={() => {

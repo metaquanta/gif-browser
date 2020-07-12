@@ -45,7 +45,7 @@ img {
   flex-direction: row;
 }
 
-.streamColumn {
+.streamColumn div {
   display: flex;
   flex-direction: column;
 }
