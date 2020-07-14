@@ -30,7 +30,15 @@ img {
   display: block;
   top: 10px;
   left: 10px;
+  width: 300px;
   z-index: 98;
+  font-size: 16pt;
+  line-height: 30px;
+  background-image: url("/giphy-powered.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right -8px top -1px;
+  opacity: 80%;
 }
 
 .darken {
